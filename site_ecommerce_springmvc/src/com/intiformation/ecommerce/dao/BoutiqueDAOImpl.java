@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.intiformation.ecommerce.entity.Categorie;
 import com.intiformation.ecommerce.entity.Client;
@@ -34,6 +35,7 @@ public class BoutiqueDAOImpl implements IBoutiqueDao {
 	/**
 	 * Ajout d'une catégorie
 	 */
+	@Transactional
 	@Override
 	public Long ajouterCategorie(Categorie cat) {
 		sf.getCurrentSession().save(cat);
@@ -43,6 +45,7 @@ public class BoutiqueDAOImpl implements IBoutiqueDao {
 	/**
 	 * Suppression d'un catgéorie
 	 */
+	@Transactional
 	@Override
 	public void supprimerCategrorie(Long idcat) {
 		sf.getCurrentSession().delete(getCategorie(idcat));
@@ -51,6 +54,7 @@ public class BoutiqueDAOImpl implements IBoutiqueDao {
 	/**
 	 * Modification  d'une catégorie
 	 */
+	@Transactional
 	@Override
 	public void modifierCategorie(Categorie cat) {
 		sf.getCurrentSession().update(cat);
@@ -59,6 +63,7 @@ public class BoutiqueDAOImpl implements IBoutiqueDao {
 	/**
 	 * Récup de la liste des catégorie
 	 */
+	@Transactional
 	@Override
 	public List<Categorie> listCategories() {
 		return sf.getCurrentSession()
@@ -69,11 +74,13 @@ public class BoutiqueDAOImpl implements IBoutiqueDao {
 	/**
 	 * Récup d'une catégorie via son ID
 	 */
+	@Transactional
 	@Override
 	public Categorie getCategorie(Long idCat) {
 		return sf.getCurrentSession().get(Categorie.class, idCat);
 	}
 
+	@Transactional
 	@Override
 	public Long ajouterProduit(Produit p, Long idCat) {
 		//Recherche de la categorie + stockage dans variable type Categorie
@@ -92,6 +99,7 @@ public class BoutiqueDAOImpl implements IBoutiqueDao {
 		return p.getIdProduit();
 	}
 
+	@Transactional
 	@Override
 	public List<Produit> listproduits() {
 		return sf.getCurrentSession()
@@ -99,6 +107,7 @@ public class BoutiqueDAOImpl implements IBoutiqueDao {
 				 .list();
 	}
 
+	@Transactional
 	@Override
 	public List<Produit> produitsParMotCle(String mc) {
 		Query requete = sf.getCurrentSession().createQuery("from produit p where p.designation = :designation");
@@ -106,6 +115,7 @@ public class BoutiqueDAOImpl implements IBoutiqueDao {
 		return requete.list();
 	}
 
+	@Transactional
 	@Override
 	public List<Produit> produitsParCategorie(Long idCat) {
 		Query requete = sf.getCurrentSession().createQuery("from produit p where p.idProduit = :idProduit");
@@ -113,37 +123,44 @@ public class BoutiqueDAOImpl implements IBoutiqueDao {
 		return requete.list();
 	}
 
+	@Transactional
 	@Override
 	public List<Produit> produitsSelectionnes() {
 		return null;
 	}
 
+	@Transactional
 	@Override
 	public Produit getProduit(Long idP) {
 		return sf.getCurrentSession().get(Produit.class, idP);
 	}
 
+	@Transactional
 	@Override
 	public void supprimerProduit(Long idP) {
 		sf.getCurrentSession().delete(getProduit(idP));
 	}
 
+	@Transactional
 	@Override
 	public void modifierProduit(Produit p) {
 		sf.getCurrentSession().update(p);
 	}
 
+	@Transactional
 	@Override
 	public void ajouterUser(User user) {
 		sf.getCurrentSession().save(user);
 	}
 
+	@Transactional
 	@Override
 	public void attribuerRole(Role r, Long userID) {
 
 		
 	}
 
+	@Transactional
 	@Override
 	public Commande enregistrerCommande(Panier p, Client c) {
 		// TODO Auto-generated method stub
