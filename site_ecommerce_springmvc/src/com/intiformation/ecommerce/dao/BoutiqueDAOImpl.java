@@ -2,6 +2,8 @@ package com.intiformation.ecommerce.dao;
 
 import java.util.List;
 
+
+
 import com.intiformation.ecommerce.entity.Categorie;
 import com.intiformation.ecommerce.entity.Client;
 import com.intiformation.ecommerce.entity.Commande;
@@ -12,6 +14,7 @@ import com.intiformation.ecommerce.entity.User;
 
 public class BoutiqueDAOImpl implements IBoutiqueDao{
 
+	
 	@Override
 	public Long ajouterCategorie(Categorie c) {
 		// TODO Auto-generated method stub
