@@ -4,4 +4,14 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+<!-- détection automatique des composants  -->
+	<context:component-scan base-package="com.intiformation.ecommerce"/>
+	
+	<!-- déclaration du bean du résolveur de vue  -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+
+
 </beans>
