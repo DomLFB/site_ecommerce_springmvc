@@ -3,6 +3,7 @@ package com.intiformation.ecommerce.dao;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -81,50 +82,48 @@ public class BoutiqueDAOImpl implements IBoutiqueDao {
 
 	@Override
 	public List<Produit> listproduits() {
-		// TODO Auto-generated method stub
-		return null;
+		return sf.getCurrentSession()
+				 .createQuery("from produit")
+				 .list();
 	}
 
 	@Override
 	public List<Produit> produitsParMotCle(String mc) {
-		// TODO Auto-generated method stub
-		return null;
+		Query requete = sf.getCurrentSession().createQuery("from produit p where p.designation = :designation");
+		requete.setParameter("designation", mc);
+		return requete.list();
 	}
 
 	@Override
 	public List<Produit> produitsParCategorie(Long idCat) {
-		// TODO Auto-generated method stub
-		return null;
+		Query requete = sf.getCurrentSession().createQuery("from produit p where p.idProduit = :idProduit");
+		requete.setParameter("idProduit", idCat);
+		return requete.list();
 	}
 
 	@Override
 	public List<Produit> produitsSelectionnes() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public Produit getProduit(Long idP) {
-		// TODO Auto-generated method stub
-		return null;
+		return sf.getCurrentSession().get(Produit.class, idP);
 	}
 
 	@Override
 	public void supprimerProduit(Long idP) {
-		// TODO Auto-generated method stub
-
+		sf.getCurrentSession().delete(getProduit(idP));
 	}
 
 	@Override
 	public void modifierProduit(Produit p) {
-		// TODO Auto-generated method stub
-
+		sf.getCurrentSession().update(p);
 	}
 
 	@Override
-	public void ajouterUser(User u) {
-		// TODO Auto-generated method stub
-
+	public void ajouterUser(User user) {
+		sf.getCurrentSession().save(user);
 	}
 
 	@Override
