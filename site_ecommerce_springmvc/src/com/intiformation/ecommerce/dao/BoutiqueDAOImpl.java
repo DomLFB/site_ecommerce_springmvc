@@ -76,8 +76,20 @@ public class BoutiqueDAOImpl implements IBoutiqueDao {
 
 	@Override
 	public Long ajouterProduit(Produit p, Long idCat) {
-
-		return null;
+		//Recherche de la categorie + stockage dans variable type Categorie
+		Categorie categorie = getCategorie(idCat);
+		
+		// Ajout du produit dans la bdd
+		sf.getCurrentSession().save(p);
+		
+		// Ajout de la categorie dans le produit
+		p.setCategorie(categorie);
+		
+		//Modif du produit
+		sf.getCurrentSession().update(p);
+		
+		//retourne l'id du produit
+		return p.getIdProduit();
 	}
 
 	@Override
@@ -128,8 +140,8 @@ public class BoutiqueDAOImpl implements IBoutiqueDao {
 
 	@Override
 	public void attribuerRole(Role r, Long userID) {
-		// TODO Auto-generated method stub
 
+		
 	}
 
 	@Override
