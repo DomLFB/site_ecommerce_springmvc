@@ -4,9 +4,9 @@ import com.intiformation.ecommerce.entity.Produit;
 
 public interface IAdminCategoriesMetier extends IAdminProduitMetier {
 
-	public Long ajouterProduit(Produit p, Long idCat);
+	public Long addProduct(Produit p, Long idCat);
 
-	public void supprimerProduit(Long idP);
+	public void deleteProduct(Long idP);
 
-	public void modifierProduit(Produit p);
+	public void updateProduct(Produit p);
 }

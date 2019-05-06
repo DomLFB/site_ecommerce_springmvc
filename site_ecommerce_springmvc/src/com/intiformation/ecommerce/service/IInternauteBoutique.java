@@ -14,15 +14,15 @@ public interface IInternauteBoutique {
 
 	public Categorie getCategorie(Long idCat);
 
-	public List<Produit> listproduits();
+	public List<Produit> listProducts();
 
-	public List<Produit> produitsParMotCle(String mc);
+	public List<Produit> productsById(String mc);
 
-	public List<Produit> produitsParCategorie(Long idCat);
+	public List<Produit> productsByCategories(Long idCat);
 
-	public List<Produit> produitsSelectionnes();
+	public List<Produit> productsSelected();
 
-	public Produit getProduit(Long idP);
+	public Produit getProduct(Long idP);
 
-	public Commande enregistrerCommande(Panier p, Client c);
+	public Commande CommandSaving(Panier p, Client c);
 }

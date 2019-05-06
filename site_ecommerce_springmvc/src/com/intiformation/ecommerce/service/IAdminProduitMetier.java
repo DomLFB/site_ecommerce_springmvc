@@ -6,13 +6,13 @@ import com.intiformation.ecommerce.entity.User;
 
 public interface IAdminProduitMetier extends IInternauteBoutique {
 
-	public Long ajouterCategorie(Categorie c);
+	public Long addCategorie(Categorie c);
 
-	public void supprimerCategrorie(Long idcat);
+	public void deleteCategrorie(Long idcat);
 
-	public void modifierCategorie(Categorie c);
+	public void updateCategorie(Categorie c);
 
-	public void ajouterUser(User u);
+	public void addUser(User u);
 
-	public void attribuerRole(Role r, Long userID);
+	public void getRole(Role r, Long userID);
 }
