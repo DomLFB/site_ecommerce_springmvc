@@ -43,7 +43,14 @@
 		<!-- déclaration des classes annotées avec les annotations JPA -->
 		<property name="annotatedClasses">
 			<list>
-				<value>com.intiformation.ecommerce.entity</value>
+				<value>com.intiformation.ecommerce.entity.Categorie</value>
+				<value>com.intiformation.ecommerce.entity.Client</value>
+				<value>com.intiformation.ecommerce.entity.Commande</value>
+				<value>com.intiformation.ecommerce.entity.LigneCommande</value>
+				<value>com.intiformation.ecommerce.entity.Panier</value>
+				<value>com.intiformation.ecommerce.entity.Produit</value>
+				<value>com.intiformation.ecommerce.entity.Role</value>
+				<value>com.intiformation.ecommerce.entity.User</value>
 			</list>
 		</property>
 	</bean>
