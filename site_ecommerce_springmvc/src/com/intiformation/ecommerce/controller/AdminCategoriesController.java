@@ -25,13 +25,13 @@ public class AdminCategoriesController {
 	 * Setter pour l'injection 
 	 * @param adminCat
 	 */
-	@RequestMapping(value = "/categories/liste", method = RequestMethod.GET)
 	public void setAdminCat(IAdminCategoriesMetier adminCategories) {
 		this.adminCat = adminCat;
 	}
 	
 	/* ######################################################################## */
 	
+	@RequestMapping(value = "/categories/liste", method = RequestMethod.GET)
 	public String index(ModelMap modeleCategories) {
 		
 		// Récupération de la liste des catégories de la BDD 
@@ -46,10 +46,10 @@ public class AdminCategoriesController {
 	} // End index () 
 	
 	@RequestMapping(value = "categories/check", method = RequestMethod.POST)
-	public String saveCat(IAdminCategoriesMetier ) {
+	public String saveCat( ) {
 		
 		// Ajouter une nouvelle catégorie dans la BDD via le service 
-		adminCat
+		
 		
 		return "redirect : /categories/liste"; 
 	} // End saveCat
